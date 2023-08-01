@@ -38,9 +38,9 @@ cat << EOF > ../kernels/kernels/$KERNEL_VERSION/README.md
 This image is compiled for WSL with Microsoft config for $2
 
 ## Version Text
-```
+\`\`\`
 ${KERNEL_VERSION}${EXTRAVERSION}${LOCALVERSION}
-```
+\`\`\`
 EOF
 
 cd ..
