@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include("./particials/head.ejs") %> <%-
+    include("./particials/styles.ejs") %>
+  </head>
+  <body>
+    <%- include("./particials/topAppbar.ejs", {page:"tasks"}); %>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mdc-card mdc-card--outlined wbc-card">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Link</th>
+                <th scope="col">Config</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% tasks.forEach((value,index)=>{ %>
+              <tr>
+                <th scope="row"><%- index+1 %></th>
+                <td><%- value.name %></td>
+                <td><%- value.link %></td>
+                <td><%- value.config %></td>
+                <td><%- value.status %></td>
+              </tr>
+              <% }); %>>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <%- include("./particials/footer.ejs") %> <%-
+    include("./scripts/ripple.ejs") %>
+  </body>
+</html>

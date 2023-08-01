@@ -1,0 +1,42 @@
+{
+  "name": "wsl-kernel-build",
+  "version": "1.0.0",
+  "description": "WslKernelBuild",
+  "main": "server.js",
+  "author": {
+    "name": "Lingrottin"
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
+    "dev": "ts-node server.ts"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.2",
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.4.5",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
+    "eslint": "^8.21.0",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.5.2"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ]
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "log4js": "^6.9.1"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,22 @@
+<%# Usage: include("particials/topAppbar.ejs", {page: 'home'}); %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light wbc-topbar">
+  <div class="container">
+    <a class="navbar-brand" style="display:-webkit-flex; display: flex; align-items: center;" href="/"><span class="material-symbols-rounded">build_circle</span>
+      WSL2 Build CI
+    </a>
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link <% if(page=='home') {%> active <% } %>" href="/" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <% if(page=='tasks') {%> active <% } %>" href="/tasks">Tasks</a>
+        </li>
+  
+      </ul>
+    </div>
+  </div>
+</nav>

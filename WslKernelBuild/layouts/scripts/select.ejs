@@ -1,0 +1,9 @@
+<script>
+  // Initialize ripples
+  const selects = Array.prototype.map.call(
+    document.querySelectorAll('.mdc-select'),
+    function (el) {
+      return new mdc.select.MDCSelect(el);
+    }
+  );
+</script>

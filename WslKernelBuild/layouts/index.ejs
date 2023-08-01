@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include("./particials/head.ejs") %> <%-
+    include("./particials/styles.ejs") %>
+  </head>
+  <body>
+    <%- include("./particials/topAppbar.ejs", {page:"home"}); %>
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-12 col-md-4 mx-3 mdc-card mdc-card--outlined mdc-ripple-surface wbc-has-ripple wbc-card"
+        >
+          <h5>WSL2 Build CI</h5>
+          <hr />
+          <p>
+            You can request a build of WSL2 kernel directly from this website,
+            then it will soon start.
+          </p>
+          <hr />
+          <p>
+            When the build completes, generated kernel file will be uploaded to
+            <a href="https://github.com/lingrottin/WSL2-kernels">GitHub</a>.
+          </p>
+        </div>
+        <div class="col-12 col-md-7 mdc-card wbc-card">
+          <h5>Request new build</h5>
+          <hr />
+          <div class="container">
+            <form action="/submit" method="post">
+              <div class="mb-3 row">
+                <label for="inputName" class="col-4 col-form-label">Name</label>
+                <div class="col-8">
+                  <input type="text" class="form-control" name="name" id="inputName" placeholder="Name">
+                </div>
+              </div>
+              <fieldset class="mb-3 row">
+                <legend class="col-form-legend col-4">Info</legend>
+                <div class="col-8">
+                  <input type="text" class="form-control" name="link" id="inputLink" placeholder="Link">
+                  <div class="mt-3">
+                    <select class="form-select form-select-lg" name="config" id="selectConf">
+                      <option selected>config...</option>
+                      <% configs.forEach(value=>{ %>
+                      <option value="<%- value.name %>"><%- value.name %></option>
+                      <% }); %>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+              <div class="mb-3 row">
+                <div class="offset-sm-4 col-sm-8">
+                  <button type="submit" class="btn btn-primary">Request</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%- include("./particials/footer.ejs") %> <%-
+    include("./scripts/ripple.ejs") %> <%- include("./scripts/textbox.ejs")
+    %><%- include("./scripts/select.ejs") %>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<script>
+  // Initialize ripples
+  const ripples = Array.prototype.map.call(
+    document.querySelectorAll('.wbc-has-ripple'),
+    function (el) {
+      return new mdc.ripple.MDCRipple(el);
+    }
+  );
+</script>
