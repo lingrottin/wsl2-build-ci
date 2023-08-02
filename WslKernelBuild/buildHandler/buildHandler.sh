@@ -8,10 +8,13 @@ KERNEL_VERSION=$(basename $1 | sed 's/linux-\(.*\)\.tar\..z$/\1/')
 cd $(dirname $0)
 
 # Get Archive
-if [[ $(echo $1 | awk -F . '{print $NF}') == 'gz' ]] ; then
-  wget -O- $1 | tar -zxf-
-elif [[ $(echo $1 | awk -F . '{print $NF}') == 'xz' ]] ; then
-  wget -O- $1 | tar -Jxf-
+if [[ ! -d linux-$KERNEL_VESION ]] ; then
+# if the directory not exist, execute this
+  if [[ $(echo $1 | awk -F . '{print $NF}') == 'gz' ]] ; then
+    wget -O- $1 | tar -zxf-
+  elif [[ $(echo $1 | awk -F . '{print $NF}') == 'xz' ]] ; then
+    wget -O- $1 | tar -Jxf-
+  fi
 fi
 
 # Enter archive dir
@@ -35,7 +38,7 @@ mkdir -p ../kernels/kernels/$KERNEL_VERSION
 cp ./arch/x86/boot/bzImage ../logs/$KERNEL_VERSION.log ../kernels/kernels/$KERNEL_VERSION/
 cat << EOF > ../kernels/kernels/$KERNEL_VERSION/README.md
 # Linux $KERNEL_VERSION
-This image is compiled for WSL with Microsoft config for $2
+This image is compiled by [wsl2-build-ci](https://github.com/lingrottin/wsl2/build-ci) (https://enita.cn/wbc/) for WSL with Microsoft config for $2
 
 ## Version Text
 \`\`\`
@@ -45,6 +48,6 @@ EOF
 
 cd ..
 rm -rf linux-$KERNEL_VERSION
-#bash kernels/update.sh
+bash kernels/update.sh
 
 exit 0
