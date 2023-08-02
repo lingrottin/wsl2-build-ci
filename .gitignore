@@ -128,3 +128,6 @@ dist
 
 # Visual Studio
 .vs/
+
+# kernel repo
+WslKernelBuild/buildHandler/kernels/
