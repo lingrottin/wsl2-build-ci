@@ -25,7 +25,7 @@ mkdir Microsoft
 cp ../configurations/$2.conf Microsoft/config-wsl
 
 # Modify configuration
-sed -i "/^EXTRAVERSION = /c\\EXTRAVERSION = $EXTRAVERSION" Makefile
+sed -i "/^EXTRAVERSION =/c\\EXTRAVERSION = $EXTRAVERSION" Makefile
 sed -i "/^CONFIG_LOCALVERSION=/c\\CONFIG_LOCALVERSION=\"$LOCALVERSION\"" Microsoft/config-wsl
 sed -i "/^CONFIG_CC_VERSION_TEXT=/c\\CONFIG_CC_VERSION_TEXT=\"$(gcc --version | sed -n '1p')\"" Microsoft/config-wsl
 
